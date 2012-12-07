@@ -3,8 +3,8 @@ package pokemonClasses;
 public class PokemonType { 
 
 	private String name;
-	private PokemonType strongAgainst;
-	private PokemonType weakAgainst;
+	private String strongAgainst;
+	private String weakAgainst;
 	
 	public PokemonType() { //for testing
 		this.name = "testType";
@@ -12,8 +12,8 @@ public class PokemonType {
 		this.weakAgainst = null;
 	}
 	
-	public PokemonType(String name, PokemonType strongAgainst,
-			PokemonType weakAgainst) {
+	public PokemonType(String name, String strongAgainst,
+			String weakAgainst) {
 		this.name = name;
 		this.strongAgainst = strongAgainst;
 		this.weakAgainst = weakAgainst;
@@ -25,16 +25,16 @@ public class PokemonType {
 	public void setName(String name) {
 		this.name = name;
 	}
-	public PokemonType getStrongAgainst() {
+	public String getStrongAgainst() {
 		return strongAgainst;
 	}
-	public void setStrongAgainst(PokemonType strongAgainst) {
+	public void setStrongAgainst(String strongAgainst) {
 		this.strongAgainst = strongAgainst;
 	}
-	public PokemonType getWeakAgainst() {
+	public String getWeakAgainst() {
 		return weakAgainst;
 	}
-	public void setWeakAgainst(PokemonType weakAgainst) {
+	public void setWeakAgainst(String weakAgainst) {
 		this.weakAgainst = weakAgainst;
 	}
 

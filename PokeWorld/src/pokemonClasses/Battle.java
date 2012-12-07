@@ -77,7 +77,7 @@ public class Battle {
 			int damage = turnPoke.attack(randomInt1);
 			int attackNum = randomInt1 + 1;
 			System.out.println(turnPoke.getName() + " used attack " + attackNum + " : " + turnPoke.getAttack(randomInt1).getName());
-			damage = oppPoke.damaged(damage, turnPoke.getAttack(randomInt1));
+			damage = oppPoke.damaged(damage, turnPoke, turnPoke.getAttack(randomInt1));
 			if (damage > 0){
 				System.out.println("      " + turnPoke.getAttack(randomInt1).getName() + " does " + damage + " damage");
 			}

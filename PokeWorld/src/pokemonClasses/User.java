@@ -42,18 +42,10 @@ public class User {
 		Pokemon pokemon1 = new Pokemon();
 		Pokemon pokemon2 = new Pokemon();
 		
-		PokemonType electric = new PokemonType("Electric", null, null); //SQL?
-		PokemonType fire = new PokemonType("Fire", null, null);
-		PokemonType water = new PokemonType("Water", null, null);
-		PokemonType grass = new PokemonType("Grass", null, null);
-		electric.setStrongAgainst(water);
-		electric.setWeakAgainst(grass);
-		fire.setStrongAgainst(grass);
-		fire.setWeakAgainst(water);
-		water.setStrongAgainst(fire);
-		water.setWeakAgainst(grass);
-		grass.setStrongAgainst(electric);
-		grass.setWeakAgainst(fire);
+		PokemonType electric = new PokemonType("Electric", "Water", "Grass");
+		PokemonType fire = new PokemonType("Fire", "Grass", "Water");
+		PokemonType water = new PokemonType("Water", "Fire", "Grass");
+		PokemonType grass = new PokemonType("Grass", "Electric", "Fire");
 		
 		Random randomGenerator = new Random();
 		
@@ -80,11 +72,11 @@ public class User {
 		AttackType watergun = new AttackType("Watergun", water, 20, 99);
 		AttackType cut = new AttackType("Cut", grass, 10, 99);
 		
-		AttackType[] myAttacks = new AttackType[4];		
-		myAttacks[0] = zap;
-		myAttacks[1] = flame;
-		myAttacks[2] = watergun;
-		myAttacks[3] = cut;
+		ArrayList<AttackType> myAttacks = new ArrayList<AttackType>();		
+		myAttacks.add(zap);
+		myAttacks.add(flame);
+		myAttacks.add(watergun);
+		myAttacks.add(cut);
 		pokemon1.setAttacks(myAttacks);
 		pokemon2.setAttacks(myAttacks);
 

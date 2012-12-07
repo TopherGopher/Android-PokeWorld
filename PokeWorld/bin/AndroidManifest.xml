@@ -4,7 +4,7 @@
     android:versionName="1.0" >
 
     <uses-sdk
-        android:minSdkVersion="8"
+        android:minSdkVersion="12"
         android:targetSdkVersion="15" />
 
     <application
@@ -19,6 +19,11 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity
+            android:name="BattleMain"
+            android:label="@string/title_activity_battle_main"
+            >            
         </activity>
     </application>
 

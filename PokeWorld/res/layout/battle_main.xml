@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<AbsoluteLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <ImageView
+        android:id="@+id/user_poke_img"
+        android:layout_width="150px"
+        android:layout_height="150px"
+        android:layout_x="171dp"
+        android:layout_y="32dp"
+        android:contentDescription="Pikachu"
+        android:src="@drawable/pikachu_looking_left" />
+
+    <Button
+        android:id="@+id/change_poke_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_x="152dp"
+        android:layout_y="365dp"
+        android:text="Change Pokemon" />
+
+    <Button
+        android:id="@+id/run_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_x="18dp"
+        android:layout_y="365dp"
+        android:text="RUN AWAY!" />
+
+    <Button
+        android:id="@+id/use_poke_ball_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_x="166dp"
+        android:layout_y="314dp"
+        android:text="Use PokeBall" />
+
+    <Button
+        android:id="@+id/fight_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_x="50dp"
+        android:layout_y="317dp"
+        android:text="Fight!" />
+
+    <ProgressBar
+        android:id="@+id/opp_hp_bar"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="120dp"
+        android:layout_height="40dp"
+        android:layout_x="156dp"
+        android:layout_y="140dp" />
+
+    <ImageView
+        android:id="@+id/opp_poke_img"
+        android:layout_width="150px"
+        android:layout_height="150px"
+        android:layout_x="28dp"
+        android:layout_y="155dp"
+        android:contentDescription="Pikachu"
+        android:src="@drawable/pikachu_looking_left" />
+
+    <ProgressBar
+        android:id="@+id/user_hp_bar"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="120dp"
+        android:layout_height="40dp"
+        android:layout_x="10dp"
+        android:layout_y="243dp" />
+
+    <TextView
+        android:id="@+id/battle_feedback"
+        android:layout_width="260dp"
+        android:layout_height="wrap_content"
+        android:layout_x="16dp"
+        android:layout_y="426dp"
+        android:text="TextView" />
+
+</AbsoluteLayout>

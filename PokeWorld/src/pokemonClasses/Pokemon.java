@@ -1,5 +1,6 @@
 package pokemonClasses;
 
+import java.util.ArrayList;
 import java.util.Random;
 
 public class Pokemon {
@@ -17,7 +18,7 @@ public class Pokemon {
 	private int XP_total;
 	private int level;
 	private String gender;
-	private AttackType[] attacks;
+	private ArrayList<AttackType> attacks;
 	
 	
 	public Pokemon() { //for testing
@@ -31,14 +32,13 @@ public class Pokemon {
 		XP_total = 100;
 		this.level = 1;
 		this.gender = "male";
-		AttackType[] myAttacks = new AttackType[4];
-		this.attacks = myAttacks;
+		this.attacks = null;
 	}
 	
 
 	public Pokemon(String name, PokemonType type, int hP_current, int hP_total,
 			int xP_Current, int xP_total, int level, String gender,
-			AttackType[] attacks) {
+			ArrayList<AttackType> attacks_temp) {
 		this.id = 0;//need to find a way for unique id's might link with sql
 		this.name = name;
 		this.type = type;
@@ -48,7 +48,7 @@ public class Pokemon {
 		XP_total = xP_total;
 		this.level = level;
 		this.gender = gender;
-		this.attacks = attacks;
+		this.attacks = attacks_temp;
 	}
 	
 	
@@ -120,19 +120,20 @@ public class Pokemon {
 		this.gender = gender;
 	}
 
-	public AttackType[] getAttacks() {
+	public ArrayList<AttackType> getAttacks() {
 		return attacks;
 	}
 
-	public void setAttacks(AttackType[] attacks) {
-		this.attacks = attacks;
+	public void setAttacks(ArrayList<AttackType> attacksList) {
+		this.attacks = attacksList;
 	}
 
 	
 	
 	
 	public AttackType getAttack(int x) {
-		return this.attacks[x];
+		//TODO - move randomizer here
+		return attacks.get(x);
 	}
 	
 	public void damageCalculation() {
@@ -144,8 +145,8 @@ public class Pokemon {
 	public int attack(int attack) {
 		int damage;
 		int accuracy;
-		damage = attacks[attack].getDamage();
-		accuracy = attacks[attack].getAccuracy();
+		damage = attacks.get(attack).getDamage();
+		accuracy = attacks.get(attack).getAccuracy();
 		
 		Random randomGenerator = new Random();
 		int randomInt = randomGenerator.nextInt(100);
@@ -157,13 +158,14 @@ public class Pokemon {
 		return 0;
 	}
 	
-	public int damaged (int damage, AttackType attack){
-		System.out.println("      " + this.name + " is type " + this.type.getName() + " : and was attacked by type  " + attack.getType().getName());
-		if(this.type.getWeakAgainst() == attack.getType()){
+	//TODO - Check my math here - make sure that I can change this to Pokemon - it was AttackType attack rather thank Pokemon attacker
+	public int damaged (int damage, Pokemon attacker, AttackType attack){
+		System.out.println("      " + this.name + " is type " + this.getType().getName() + " : and was attacked by type  " + attacker.getType().getName());
+		if(this.getType().getWeakAgainst() == attacker.getType().toString()){
 			damage = damage * 2;
 			System.out.println("      It's super effective!" );
 		}
-		if(this.type.getStrongAgainst() == attack.getType()){
+		if(this.getType().getStrongAgainst() == attacker.getType().toString()){
 			damage = damage / 2;
 			System.out.println("      It's not very effective" );
 		}
