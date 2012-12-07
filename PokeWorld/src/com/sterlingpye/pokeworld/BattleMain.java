@@ -13,6 +13,7 @@ import android.annotation.TargetApi;
 import android.app.Activity;
 import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
+import android.util.Log;
 import android.view.Menu;
 import android.view.View;
 import android.view.animation.Animation;
@@ -66,19 +67,21 @@ public class BattleMain extends Activity {
         p3.setAttacks(myAttacks);
         p4.setAttacks(myAttacks);
         
+        Log.d("Inserting Pokemon: ", "Inserting...");
+        
         
         db.addPokemon(p1);
         db.addPokemon(p2);
         db.addPokemon(p3);
         db.addPokemon(p4);
         		
-        
+        Log.d("Inserting PokemonType: ", "Inserting...");
         db.addPokemonType(new PokemonType("Electric", "Water", "Grass"));
         db.addPokemonType(new PokemonType("Fire", "Grass", "Water"));
         db.addPokemonType(new PokemonType("Water", "Fire", "Grass"));
         db.addPokemonType(new PokemonType("Grass", "Electric", "Fire"));
 		  
-        
+        Log.d("Completed: ","Complete");
         
     }
 
