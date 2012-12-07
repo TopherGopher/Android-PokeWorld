@@ -37,7 +37,7 @@ public class User {
 	/**Testing runtime
 	 * @param args
 	 */
-	public static void main(String[] args) {
+	/*public static void main(String[] args) {
 		// testing
 		Pokemon pokemon1 = new Pokemon();
 		Pokemon pokemon2 = new Pokemon();
@@ -84,7 +84,7 @@ public class User {
 		Battle War = new Battle(pokemon1, pokemon2);
 		War.battleProgram();
 		
-	}
+	}*/
 
 
 

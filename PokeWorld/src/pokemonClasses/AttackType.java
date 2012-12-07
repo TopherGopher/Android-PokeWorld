@@ -3,19 +3,19 @@ package pokemonClasses;
 public class AttackType {
 
 	private String name;
-	private PokemonType type;
+	private String type;
 	private int damage;
 	private int accuracy;
 	
 	public AttackType() { //for testing
 		super();
-		this.name = "slam";
-		this.type = new PokemonType();
+		this.name = "Slam";
+		this.type = "Physical";
 		this.damage = 10;
 		this.accuracy = 50;
 	}
 	
-	public AttackType(String name, PokemonType type, int damage, int accuracy) {
+	public AttackType(String name, String type, int damage, int accuracy) {
 		this.name = name;
 		this.type = type;
 		this.damage = damage;
@@ -29,10 +29,10 @@ public class AttackType {
 	public void setName(String name) {
 		this.name = name;
 	}
-	public PokemonType getType() {
+	public String getType() {
 		return type;
 	}
-	public void setType(PokemonType type) {
+	public void setType(String type) {
 		this.type = type;
 	}
 	public int getDamage() {

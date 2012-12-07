@@ -26,6 +26,7 @@ public class Pokemon {
 		int randomInt = randomGenerator.nextInt(1000);
 		this.id = randomInt;
 		this.name = "TEST" + randomInt;
+		this.type = new PokemonType("Electric", "Water", "Grass");
 		HP_current = 100;
 		HP_total = 100;
 		XP_Current = 0;
