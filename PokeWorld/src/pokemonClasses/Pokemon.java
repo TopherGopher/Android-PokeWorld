@@ -141,6 +141,23 @@ public class Pokemon {
 		//what was this for?
 	}
 	
+	public boolean wasEffective (AttackType attack){
+		if(this.type.getWeakAgainst() == attack.getType()){
+			return true;
+		}
+		else{
+			return false;
+		}
+	}
+	public boolean wasNotEffective (AttackType attack){
+		if(this.type.getStrongAgainst() == attack.getType()){
+			return true;
+		}
+		else{
+			return false;
+		}
+	}
+	
 	
 	//changing the input as defined in the UML from String attackName to integer
 	public int attack(int attack) {
@@ -160,15 +177,12 @@ public class Pokemon {
 	}
 	
 	//TODO - Check my math here - make sure that I can change this to Pokemon - it was AttackType attack rather thank Pokemon attacker
-	public int damaged (int damage, Pokemon attacker, AttackType attack){
-		System.out.println("      " + this.name + " is type " + this.getType().getName() + " : and was attacked by type  " + attacker.getType().getName());
-		if(this.getType().getWeakAgainst() == attacker.getType().toString()){
+	public int damaged (int damage, AttackType attack){
+		if(wasEffective(attack)){
 			damage = damage * 2;
-			System.out.println("      It's super effective!" );
 		}
-		if(this.getType().getStrongAgainst() == attacker.getType().toString()){
+		if(wasNotEffective(attack)){
 			damage = damage / 2;
-			System.out.println("      It's not very effective" );
 		}
 		this.HP_current -= damage;
 		return damage;
