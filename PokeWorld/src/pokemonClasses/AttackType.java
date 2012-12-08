@@ -1,5 +1,7 @@
 package pokemonClasses;
 
+import com.sterlingpye.pokeworld.DatabaseHandler;
+
 public class AttackType {
 
 	private String name;
@@ -21,16 +23,16 @@ public class AttackType {
 		this.damage = damage;
 		this.accuracy = accuracy;
 	}
-	
+	public String getType()
+	{
+		return type;
+	}
 	
 	public String getName() {
 		return name;
 	}
 	public void setName(String name) {
 		this.name = name;
-	}
-	public String getType() {
-		return type;
 	}
 	public void setType(String type) {
 		this.type = type;
@@ -47,6 +49,7 @@ public class AttackType {
 	public void setAccuracy(Integer accuracy) {
 		this.accuracy = accuracy;
 	}
+	
 
 
 }

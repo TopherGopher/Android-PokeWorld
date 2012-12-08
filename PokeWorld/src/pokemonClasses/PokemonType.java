@@ -25,6 +25,8 @@ public class PokemonType {
 	public void setName(String name) {
 		this.name = name;
 	}
+	
+	
 	public String getStrongAgainst() {
 		return strongAgainst;
 	}
@@ -37,6 +39,7 @@ public class PokemonType {
 	public void setWeakAgainst(String weakAgainst) {
 		this.weakAgainst = weakAgainst;
 	}
+	
 
 
 

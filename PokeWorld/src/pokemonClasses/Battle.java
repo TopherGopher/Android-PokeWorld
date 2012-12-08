@@ -32,12 +32,27 @@ public class Battle {
 	}
 	
 	
-	public void opponentAttack(int attack_num){
-		int damage_ammount = opponentPoke.attack(attack_num);	
+	public int opponentAttack(){
+		Random generator = new Random();
+		int attackNum = generator.nextInt(4); //Randomly select an attack to counter with
+		int damage_ammount = opponentPoke.attack(attackNum);	
 		if (damage_ammount == -1){
 			//missed
 		}
-		userPoke.damaged(damage_ammount, opponentPoke.getAttack(attack_num));		
+		userPoke.damaged(damage_ammount, opponentPoke.getAttack(attackNum));	
+		return attackNum;
+	}
+	
+	public String getFightResult()
+	{
+		String textResult = "";
+		if (opponentPoke.wasEffective(userPoke.getAttack(0))){
+    		textResult = "It's super effective!";
+    	}
+    	else if (opponentPoke.wasNotEffective(userPoke.getAttack(0))){
+    		textResult = "It's not very effective...";
+    	}
+		return textResult;
 	}
 
 	
