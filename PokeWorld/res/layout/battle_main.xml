@@ -2,9 +2,9 @@
 <AbsoluteLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent" >
-
+
     <ImageView
-        android:id="@+id/user_poke_img"
+        android:id="@+id/opponent_poke_img"
         android:layout_width="150px"
         android:layout_height="150px"
         android:layout_x="171dp"
@@ -53,7 +53,7 @@
         android:layout_y="140dp" />
 
     <ImageView
-        android:id="@+id/opp_poke_img"
+        android:id="@+id/user_poke_img"
         android:layout_width="150px"
         android:layout_height="150px"
         android:layout_x="28dp"
@@ -68,7 +68,8 @@
         android:layout_height="40dp"
         android:layout_x="10dp"
         android:layout_y="243dp" />
-
+
+
     <TextView
         android:id="@+id/battle_feedback"
         android:layout_width="260dp"
@@ -76,5 +77,44 @@
         android:layout_x="16dp"
         android:layout_y="426dp"
         android:text="TextView" />
+
+    <Button
+        android:id="@+id/attack1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_x="34dp"
+        android:layout_y="304dp"
+        android:text="Attack 1" 
+        android:visibility="invisible"/>
+
+
+    <Button
+        android:id="@+id/attack2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_x="170dp"
+        android:layout_y="304dp"
+        android:text="Attack 2"
+        android:visibility="invisible" />
+
+    <Button
+        android:id="@+id/attack3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_x="33dp"
+        android:layout_y="355dp"
+        android:text="Attack 3"
+        android:visibility="invisible" />
+
+    <Button
+        android:id="@+id/attack4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_x="170dp"
+        android:layout_y="354dp"
+        android:text="Attack 4" 
+        android:visibility="invisible"/>
+    
+    
 
 </AbsoluteLayout>

@@ -9,7 +9,9 @@ package com.sterlingpye.pokeworld;
 
 public final class R {
     public static final class anim {
-        public static final int shake=0x7f040000;
+        public static final int attack=0x7f040000;
+        public static final int death=0x7f040001;
+        public static final int shake=0x7f040002;
     }
     public static final class attr {
     }
@@ -19,17 +21,21 @@ public final class R {
         public static final int pikachu_looking_left=0x7f020002;
     }
     public static final class id {
+        public static final int attack1=0x7f08000a;
+        public static final int attack2=0x7f08000b;
+        public static final int attack3=0x7f08000c;
+        public static final int attack4=0x7f08000d;
         public static final int battle_feedback=0x7f080009;
         public static final int change_poke_btn=0x7f080002;
         public static final int fight_btn=0x7f080005;
         public static final int launchBattle=0x7f080000;
-        public static final int menu_settings=0x7f08000a;
+        public static final int menu_settings=0x7f08000e;
         public static final int opp_hp_bar=0x7f080006;
-        public static final int opp_poke_img=0x7f080007;
+        public static final int opponent_poke_img=0x7f080001;
         public static final int run_btn=0x7f080003;
         public static final int use_poke_ball_btn=0x7f080004;
         public static final int user_hp_bar=0x7f080008;
-        public static final int user_poke_img=0x7f080001;
+        public static final int user_poke_img=0x7f080007;
     }
     public static final class layout {
         public static final int activity_main_map=0x7f030000;
