@@ -77,18 +77,18 @@
         android:layout_x="16dp"
         android:layout_y="426dp"
         android:text="TextView" />
-
+
     <Button
         android:id="@+id/attack1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_x="34dp"
         android:layout_y="304dp"
-        android:text="Attack 1" 
-        android:visibility="invisible"
+        android:text="Attack 1"
+        android:visibility="invisible" 
         android:onClick="attackButtonClickListener"
-        android:value="1"/>
-
+        android:contentDescription="1"
+        />
 
     <Button
         android:id="@+id/attack2"
@@ -99,7 +99,8 @@
         android:text="Attack 2"
         android:visibility="invisible" 
         android:onClick="attackButtonClickListener"
-        android:value="2"/>
+        android:contentDescription="2"
+        />
 
     <Button
         android:id="@+id/attack3"
@@ -110,7 +111,8 @@
         android:text="Attack 3"
         android:visibility="invisible" 
         android:onClick="attackButtonClickListener"
-        android:value="3"/>
+        android:contentDescription="3"
+        />
 
     <Button
         android:id="@+id/attack4"
@@ -121,7 +123,8 @@
         android:text="Attack 4" 
         android:visibility="invisible"
         android:onClick="attackButtonClickListener"
-        android:value="4"/>
+        android:contentDescription="4"
+        />
     
     
 

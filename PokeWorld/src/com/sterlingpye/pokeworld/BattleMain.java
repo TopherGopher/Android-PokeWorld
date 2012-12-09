@@ -29,42 +29,54 @@ import android.widget.TextView;
 @TargetApi(11)
 public class BattleMain extends Activity {
 
-	//declarations
-    final TextView textOutput = (TextView)findViewById(R.id.battle_feedback);
-    
-    
-    final ImageView userPokeImg = (ImageView)findViewById(R.id.user_poke_img);
-    final ImageView oppPokeImg = (ImageView)findViewById(R.id.opponent_poke_img);
-	
-    final Animation shake = AnimationUtils.loadAnimation(this, R.anim.shake);
-	final Animation attack = AnimationUtils.loadAnimation(this, R.anim.attack);
-	final Animation death = AnimationUtils.loadAnimation(this, R.anim.death);
-           
-    final Button attack1 = (Button)findViewById(R.id.attack1);
-    final Button attack2 = (Button)findViewById(R.id.attack2);
-    final Button attack3 = (Button)findViewById(R.id.attack3);
-    final Button attack4 = (Button)findViewById(R.id.attack4);
-    
-    final Button fight = (Button)findViewById(R.id.fight_btn);
-    final Button run = (Button)findViewById(R.id.run_btn);
-    final Button usePokeBall = (Button)findViewById(R.id.use_poke_ball_btn);
-    final Button changePoke = (Button)findViewById(R.id.change_poke_btn);
-    
-    final ProgressBar user_poke_health = (ProgressBar)findViewById(R.id.user_hp_bar);
-    final ProgressBar opp_poke_health = (ProgressBar)findViewById(R.id.opp_hp_bar);
-    
-    final DatabaseHandler db = new DatabaseHandler(this);
-    ArrayList<Pokemon> pokes = db.getAllPokemon();
-    
-    final Pokemon user_pokemon = pokes.get(1);
-    final Pokemon opp_pokemon = pokes.get(2);
-    
-    final Battle battle = new Battle(user_pokemon, opp_pokemon);
+	//Sterling - when poke variables change, they change in the database
+	//Work on geolocation randomizer integration
+	//Pye - Finish out Fight sequence
+	Battle battle;
+	Pokemon user_pokemon;
+    Pokemon opp_pokemon;
     
 	@Override
     public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
+        Log.d("In onCreate()", "Successfully got to function");
+		super.onCreate(savedInstanceState);
         setContentView(R.layout.battle_main);
+        
+      //declarations
+        final TextView textOutput = (TextView)findViewById(R.id.battle_feedback);
+        
+        
+        
+    	
+        
+               
+        final Button attack1 = (Button)findViewById(R.id.attack1);
+        final Button attack2 = (Button)findViewById(R.id.attack2);
+        final Button attack3 = (Button)findViewById(R.id.attack3);
+        final Button attack4 = (Button)findViewById(R.id.attack4);
+        
+        final Button fight = (Button)findViewById(R.id.fight_btn);
+        final Button run = (Button)findViewById(R.id.run_btn);
+        final Button usePokeBall = (Button)findViewById(R.id.use_poke_ball_btn);
+        final Button changePoke = (Button)findViewById(R.id.change_poke_btn);
+        
+        final ProgressBar user_poke_health = (ProgressBar)findViewById(R.id.user_hp_bar);
+        final ProgressBar opp_poke_health = (ProgressBar)findViewById(R.id.opp_hp_bar);
+        
+        DatabaseHandler db;
+        db = new DatabaseHandler(this);
+        ArrayList<Pokemon> pokes = db.getAllPokemon();
+        Log.d("pokes", pokes.toString());        
+        user_pokemon = pokes.get(1);
+        opp_pokemon = pokes.get(2);
+
+        
+        Log.d("Got past the DB handler","Hooray!");
+        
+        battle = new Battle(user_pokemon, opp_pokemon);
+        Log.d("Got past the battle function","YES!");
+        
+        
         
         //Begin the battle
         textOutput.setText("Encountered a wild Pokemon!");
@@ -76,8 +88,8 @@ public class BattleMain extends Activity {
         opp_poke_health.setProgress(100);
         opp_poke_health.setMax(opp_pokemon.getHP_total());
         
-        
-        /*Pokemon p1 = new Pokemon();
+        /*
+        Pokemon p1 = new Pokemon();
         Pokemon p2 = new Pokemon();
         Pokemon p3 = new Pokemon();
         Pokemon p4 = new Pokemon();
@@ -120,7 +132,6 @@ public class BattleMain extends Activity {
         
         
         
-        
 		
 		
         fight.setOnClickListener(new View.OnClickListener() {
@@ -146,7 +157,7 @@ public class BattleMain extends Activity {
         
     }
 
-    private OnClickListener attackButtonClickListener(View v) {
+    public OnClickListener attackButtonClickListener(View v) {
 				
 		fightSequence(v);				
     	return null;
@@ -161,13 +172,21 @@ public class BattleMain extends Activity {
 	public void fightSequence(View v)
 	{
 		//this is running the animation for us for right now for the battle sequence
-		
-    	userPokeImg.startAnimation(attack);				
-		textOutput.setText(user_pokemon.getName() + " used " + user_pokemon.getAttack( 
-					((Button) v).getText().toString().charAt( 
-						((Button)v).getText().toString().length())  
-				).getName() + "!"); //TODO - change this to use Android:Value
-		battle.userAttack(0);
+		final ImageView userPokeImg = (ImageView)findViewById(R.id.user_poke_img);
+        final ImageView oppPokeImg = (ImageView)findViewById(R.id.opponent_poke_img);
+        
+        final Animation shake = AnimationUtils.loadAnimation(this, R.anim.shake);
+    	final Animation attack = AnimationUtils.loadAnimation(this, R.anim.attack);
+    	final Animation death = AnimationUtils.loadAnimation(this, R.anim.death);
+    	
+    	final TextView textOutput = (TextView)findViewById(R.id.battle_feedback);
+    	final ProgressBar user_poke_health = (ProgressBar)findViewById(R.id.user_hp_bar);
+        final ProgressBar opp_poke_health = (ProgressBar)findViewById(R.id.opp_hp_bar);
+       
+    	userPokeImg.startAnimation(attack);	
+    	int userAttackNumber = Integer.parseInt(((Button)v).getContentDescription().toString())-1;
+    	textOutput.setText(user_pokemon.getName() + " used " + user_pokemon.getAttack(userAttackNumber).getName() + "!"); 
+		battle.userAttack(userAttackNumber);
 		
 		v.postDelayed(new Runnable() {
 	        @Override

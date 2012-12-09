@@ -11,12 +11,13 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.util.Log;
 
 public class DatabaseHandler extends SQLiteOpenHelper {
 	 
     // All Static variables
     // Database Version
-    private static final int DATABASE_VERSION = 1;
+    private static final int DATABASE_VERSION = 2;
  
     // Database Name
     private static final String DATABASE_NAME = "pokeworld";
@@ -117,7 +118,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
     {
     	Pokemon temp = new Pokemon();
     	SQLiteDatabase db = this.getWritableDatabase();
-    	Cursor cursor = db.rawQuery("SELECT * FROM pokemon WHERE name=%s", new String [] {name});
+    	Cursor cursor = db.rawQuery("SELECT * FROM pokemon WHERE name='"+name+"'", null);
     	 // looping through all rows and adding to list
         cursor.moveToFirst();
         temp.setName(cursor.getString(1));
@@ -136,7 +137,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
     {
     	PokemonType temp = new PokemonType();
     	SQLiteDatabase db = this.getWritableDatabase();
-    	Cursor cursor = db.rawQuery("SELECT * FROM pokemon_type WHERE name=%s", new String [] {name});
+    	Cursor cursor = db.rawQuery("SELECT * FROM pokemon_type WHERE name='"+name+"'", null);
     	 // looping through all rows and adding to list
         cursor.moveToFirst();
         temp.setName(cursor.getString(1));
@@ -149,7 +150,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
     {
     	AttackType temp = new AttackType();
     	SQLiteDatabase db = this.getWritableDatabase();
-    	Cursor cursor = db.rawQuery("SELECT * FROM attack_type WHERE pokemon_name=%s", new String [] {tempPoke.getName()});
+    	Cursor cursor = db.rawQuery("SELECT * FROM attack_type WHERE pokemon_name='"+tempPoke.getName()+"'", null);
     	 // looping through all rows and adding to list
         cursor.moveToFirst();
         temp.setName(cursor.getString(1));
@@ -171,6 +172,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
                 Pokemon temp = new Pokemon();
                 temp.setName(cursor.getString(1));
                 temp.setType(getPokemonType(cursor.getString(2)));
+                Log.d("Successfully retrieved type of",cursor.getString(2));
                 temp.setHP_current(cursor.getInt(3));
                 temp.setHP_total(cursor.getInt(4));
                 temp.setXP_Current(cursor.getInt(5));
@@ -178,6 +180,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
                 temp.setLevel(cursor.getInt(7));
                 temp.setGender(cursor.getString(8));
                 temp.setAttacks(getAllAttackTypesForPokemon(cursor.getString(1)));
+                Log.d("Successfully retrieved attacks for", cursor.getString(1));
                 
                 // Adding contact to list
                 pokemonList.add(temp);
@@ -210,7 +213,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 		ArrayList<AttackType> attackTypeList = new ArrayList<AttackType>();
     	//Select All Query
     	SQLiteDatabase db = this.getWritableDatabase();
-    	Cursor cursor = db.rawQuery("SELECT * FROM attack_type WHERE pokemon_name=%s", new String [] {pokemonName});
+    	Cursor cursor = db.rawQuery("SELECT * FROM attack_type WHERE pokemon_name='"+pokemonName+"'", null);
     	 // looping through all rows and adding to list
         if (cursor.moveToFirst()) {
             do {
