@@ -88,7 +88,7 @@ public class BattleMain extends Activity {
         opp_poke_health.setProgress(100);
         opp_poke_health.setMax(opp_pokemon.getHP_total());
         
-        /*
+        
         Pokemon p1 = new Pokemon();
         Pokemon p2 = new Pokemon();
         Pokemon p3 = new Pokemon();
@@ -123,7 +123,7 @@ public class BattleMain extends Activity {
         db.addPokemonType(new PokemonType("Water", "Fire", "Grass"));
         db.addPokemonType(new PokemonType("Grass", "Electric", "Fire"));
 		
-        Log.d("Completed: ","Complete");*/
+        Log.d("Completed: ","Complete");
         
         
         
