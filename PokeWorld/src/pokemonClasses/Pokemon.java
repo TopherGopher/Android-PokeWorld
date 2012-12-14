@@ -36,6 +36,20 @@ public class Pokemon {
 		this.attacks = null;
 	}
 	
+	public Pokemon(String name) { //for testing
+		Random randomGenerator = new Random();
+		int randomInt = randomGenerator.nextInt(1000);
+		this.id = randomInt;
+		this.name = name;
+		this.type = new PokemonType("Electric", "Water", "Grass");
+		HP_current = 100;
+		HP_total = 100;
+		XP_Current = 0;
+		XP_total = 100;
+		this.level = 1;
+		this.gender = "male";
+		this.attacks = null;
+	}
 
 	public Pokemon(String name, PokemonType type, int hP_current, int hP_total,
 			int xP_Current, int xP_total, int level, String gender,
@@ -187,4 +201,16 @@ public class Pokemon {
 		this.HP_current -= damage;
 		return damage;
 	}
+	
+	
+	public int compareTo(Pokemon compareObject)
+    {
+        if (getName().compareTo(compareObject.getName()) < 0)
+            return -1;
+        else if (getName().compareTo(compareObject.getName()) == 0)
+            return 0;
+        else
+            return 1;
+    }
+	
 }

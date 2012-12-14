@@ -10,15 +10,8 @@
         android:layout_x="171dp"
         android:layout_y="32dp"
         android:contentDescription="Pikachu"
-        android:src="@drawable/pikachu_looking_left" />
+        android:src="@drawable/ic_launcher" />
 
-    <Button
-        android:id="@+id/change_poke_btn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_x="152dp"
-        android:layout_y="365dp"
-        android:text="Change Pokemon" />
 
     <Button
         android:id="@+id/run_btn"
@@ -26,15 +19,8 @@
         android:layout_height="wrap_content"
         android:layout_x="18dp"
         android:layout_y="365dp"
+        android:onClick="runButtonClickListener"
         android:text="RUN AWAY!" />
-
-    <Button
-        android:id="@+id/use_poke_ball_btn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_x="166dp"
-        android:layout_y="314dp"
-        android:text="Use PokeBall" />
 
     <Button
         android:id="@+id/fight_btn"
@@ -42,6 +28,7 @@
         android:layout_height="wrap_content"
         android:layout_x="50dp"
         android:layout_y="317dp"
+        android:onClick="fightButtonClickListener"
         android:text="Fight!" />
 
     <ProgressBar
@@ -59,7 +46,7 @@
         android:layout_x="28dp"
         android:layout_y="155dp"
         android:contentDescription="Pikachu"
-        android:src="@drawable/pikachu_looking_left" />
+        android:src="@drawable/ic_launcher" />
 
     <ProgressBar
         android:id="@+id/user_hp_bar"
@@ -76,8 +63,10 @@
         android:layout_height="wrap_content"
         android:layout_x="16dp"
         android:layout_y="426dp"
+        android:textColor="#ff0000"
         android:text="TextView" />
-
+
+
     <Button
         android:id="@+id/attack1"
         android:layout_width="wrap_content"
